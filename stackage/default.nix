@@ -198,7 +198,7 @@
   lts-918 = callPackage ./lts-9.18 {};
   lts-919 = callPackage ./lts-9.19 {};
   lts-920 = callPackage ./lts-9.20 {};
-  lts-921 = callPackage ./lts-9.21 {};
+  lts-921-reesd = callPackage ./lts-9.21-reesd {};
   lts-100 = callPackage ./lts-10.0 {};
   lts-101 = callPackage ./lts-10.1 {};
   lts-102 = callPackage ./lts-10.2 {};

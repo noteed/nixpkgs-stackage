@@ -1,6 +1,7 @@
 # nixpkgs-stackage
 
-[![Build Status](https://travis-ci.org/typeable/nixpkgs-stackage.svg?branch=master)](https://travis-ci.org/typeable/nixpkgs-stackage)
+*Note:* this branch contains modification to the lts-9.21 set of packages for
+reesd-stack.
 
 Nixpkgs overlay adding Stackage Haskell packages at the `pkgs.haskell.packages.stackage`
 
