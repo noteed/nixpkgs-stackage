@@ -2108,6 +2108,28 @@ self: {
        description = "Attempto Controlled English parser and printer";
        license = stdenv.lib.licenses.bsd3;
      }) {};
+  "acid-state" = callPackage
+    ({ mkDerivation, array, base, bytestring, cereal, containers
+     , criterion, directory, extensible-exceptions, filepath, mtl
+     , network, random, safecopy, stm, system-fileio, system-filepath
+     , template-haskell, unix
+     }:
+     mkDerivation {
+       pname = "acid-state";
+       version = "0.14.3";
+       sha256 = "1d8hq8cj6h4crfnkmds6mhrhhg7r1b1byb8fybaj8khfa99sj0nm";
+       libraryHaskellDepends = [
+         array base bytestring cereal containers directory
+         extensible-exceptions filepath mtl network safecopy stm
+         template-haskell unix
+       ];
+       benchmarkHaskellDepends = [
+         base criterion directory mtl random system-fileio system-filepath
+       ];
+       homepage = "https://github.com/acid-state/acid-state";
+       description = "Add ACID guarantees to any serializable Haskell data structure";
+       license = stdenv.lib.licenses.publicDomain;
+     }) {};
   "action-permutations" = callPackage
     ({ mkDerivation, base }:
      mkDerivation {
@@ -16450,6 +16472,30 @@ self: {
        description = "Bindings to Linux I2C with support for repeated-start transactions";
        license = stdenv.lib.licenses.mit;
      }) {};
+  "heist" = callPackage
+    ({ mkDerivation, aeson, attoparsec, base, blaze-builder, blaze-html
+     , bytestring, containers, directory, directory-tree, dlist
+     , filepath, hashable, lifted-base, map-syntax, monad-control, mtl
+     , process, random, text, time, transformers, transformers-base
+     , unordered-containers, vector, xmlhtml
+     }:
+     mkDerivation {
+       pname = "heist";
+       version = "1.0.1.2";
+       sha256 = "0kpn5c3j7d42l12axd05hglhxqc4y7l0rz57lcqh3yznjl7mzv71";
+       revision = "1";
+       editedCabalFile = "0aac04b374bi02nj1li7xf0w2z1d87l8qhzjmpsharg9jxrk8ngn";
+       libraryHaskellDepends = [
+         aeson attoparsec base blaze-builder blaze-html bytestring
+         containers directory directory-tree dlist filepath hashable
+         lifted-base map-syntax monad-control mtl process random text time
+         transformers transformers-base unordered-containers vector xmlhtml
+       ];
+       doCheck = false;
+       homepage = "http://snapframework.com/";
+       description = "An Haskell template system supporting both HTML5 and XML";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
   "hPDB" = callPackage
     ({ mkDerivation, AC-Vector, base, bytestring, containers, deepseq
      , directory, ghc-prim, iterable, mmap, mtl, Octree, parallel
@@ -24072,6 +24118,23 @@ self: {
        ];
        description = "Library for interfacing with the Mandrill JSON API";
        license = stdenv.lib.licenses.mit;
+     }) {};
+  "map-syntax" = callPackage
+    ({ mkDerivation, base, containers, deepseq, hspec, HUnit, mtl
+     , QuickCheck, transformers
+     }:
+     mkDerivation {
+       pname = "map-syntax";
+       version = "0.2.0.2";
+       sha256 = "12jdv9myffpkhhrwm5kzhbqzbxfb0rb4fvww33d0yq4s6sk9b3xi";
+       revision = "2";
+       editedCabalFile = "12b3pbrd70xpx634ngl4dcvda5p9494wq6mc8s1wv4624hwlgja6";
+       libraryHaskellDepends = [ base containers mtl ];
+       testHaskellDepends = [
+         base containers deepseq hspec HUnit mtl QuickCheck transformers
+       ];
+       description = "Syntax sugar for defining maps";
+       license = stdenv.lib.licenses.bsd3;
      }) {};
   "markdown" = callPackage
     ({ mkDerivation, attoparsec, base, blaze-html, blaze-markup
@@ -33697,6 +33760,43 @@ self: {
        description = "Simple email sending via SMTP";
        license = stdenv.lib.licenses.bsd3;
      }) {};
+  "snap" = callPackage
+    ({ mkDerivation, aeson, async, attoparsec, base, bytestring, cereal
+     , clientsession, configurator, containers, deepseq, directory
+     , directory-tree, dlist, filepath, hashable, heist, http-streams
+     , HUnit, lens, lifted-base, map-syntax, monad-control, mtl
+     , mwc-random, pwstore-fast, QuickCheck, smallcheck, snap-core
+     , snap-server, stm, syb, test-framework, test-framework-hunit
+     , test-framework-quickcheck2, test-framework-smallcheck, text, time
+     , transformers, transformers-base, unordered-containers, xmlhtml
+     }:
+     mkDerivation {
+       pname = "snap";
+       version = "1.1.0.0";
+       sha256 = "166ilpc4dd4020mmqn2lrfs3j5dl4a2mvqag1sz4mx7jcndrjbc8";
+       revision = "2";
+       editedCabalFile = "05k5fgb31xvz733j3d4hqbhzbjlglv1m4f020mdnm1q7qg4a81nq";
+       libraryHaskellDepends = [
+         aeson attoparsec base bytestring cereal clientsession configurator
+         containers directory directory-tree dlist filepath hashable heist
+         lens lifted-base map-syntax monad-control mtl mwc-random
+         pwstore-fast snap-core snap-server stm text time transformers
+         transformers-base unordered-containers xmlhtml
+       ];
+       testHaskellDepends = [
+         aeson async attoparsec base bytestring cereal clientsession
+         configurator containers deepseq directory directory-tree dlist
+         filepath hashable heist http-streams HUnit lens lifted-base
+         map-syntax monad-control mtl mwc-random pwstore-fast QuickCheck
+         smallcheck snap-core snap-server stm syb test-framework
+         test-framework-hunit test-framework-quickcheck2
+         test-framework-smallcheck text time transformers transformers-base
+         unordered-containers xmlhtml
+       ];
+       homepage = "http://snapframework.com/";
+       description = "Top-level package for the Snap Web Framework";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
   "snap-blaze" = callPackage
     ({ mkDerivation, base, blaze-html, snap-core }:
      mkDerivation {
@@ -41488,6 +41588,28 @@ self: {
        description = "Fast XML generation library";
        license = stdenv.lib.licenses.bsd3;
      }) {};
+  "xmlhtml" = callPackage
+    ({ mkDerivation, base, blaze-builder, blaze-html, blaze-markup
+     , bytestring, bytestring-builder, containers, directory, hspec
+     , HUnit, parsec, text, unordered-containers
+     }:
+     mkDerivation {
+       pname = "xmlhtml";
+       version = "0.2.5.2";
+       sha256 = "1p2v1cj9jjwbqyb0fyv2201zd7ljz5d46qg5kwy7rz2bchbqd0b4";
+       libraryHaskellDepends = [
+         base blaze-builder blaze-html blaze-markup bytestring
+         bytestring-builder containers parsec text unordered-containers
+       ];
+       testHaskellDepends = [
+         base blaze-builder blaze-html blaze-markup bytestring
+         bytestring-builder containers directory hspec HUnit text
+         unordered-containers
+       ];
+       homepage = "https://github.com/snapframework/xmlhtml";
+       description = "XML parser and renderer with HTML 5 quirks mode";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
   "xmonad" = callPackage
     ({ mkDerivation, base, containers, data-default, directory
      , extensible-exceptions, filepath, mtl, process, QuickCheck
@@ -42718,8 +42840,8 @@ self: {
      }:
      mkDerivation {
        pname = "zlib";
-       version = "0.6.1.2";
-       sha256 = "1fx2k2qmgm2dj3fkxx2ry945fpdn02d4dkihjxma21xgdiilxsz4";
+       version = "0.6.2";
+       sha256 = "1vbzf0awb6zb456xf48za1kl22018646cfzq4frvxgb9ay97vk0d";
        libraryHaskellDepends = [ base bytestring ];
        librarySystemDepends = [ zlib ];
        testHaskellDepends = [
